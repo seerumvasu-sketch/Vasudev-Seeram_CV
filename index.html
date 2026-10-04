@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vasudev Seeram, PhD, DABT, ERT — Toxicologist &amp; Biocompatibility Specialist</title>
+<meta name="description" content="Portfolio of Vasudev Seeram, PhD, DABT, ERT — toxicologist and biocompatibility specialist with 17+ years across medical devices, non-clinical toxicology, and regulatory science.">
+
+<!-- Fonts: Fraunces (elegant serif display) paired with Inter (body). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   Soft pastel base (matched to the Spline hero) with a rotating
+   set of muted accent hues — lilac / peach / sage / dusty blue /
+   dusty rose — used deliberately per section, not decoratively.
+   ============================================================ */
+:root{
+  --bg:            #FBF6EF;
+  --surface:       #FFFFFF;
+  --surface-2:     #F3EAE0;
+  --line:          #E7DCCC;
+  --text:          #33291F;
+  --text-dim:      #8C7E70;
+
+  --lilac:         #A996CC;  --lilac-dim:  #DCD1EC;  --lilac-shadow: rgba(169,150,204,0.35);
+  --peach:         #E7AE84;  --peach-dim:  #F5E2D1;  --peach-shadow: rgba(231,174,132,0.35);
+  --sage:          #93AC96;  --sage-dim:   #DCE6DC;  --sage-shadow:  rgba(147,172,150,0.35);
+  --blue:          #8FB3C9;  --blue-dim:   #D6E5EC;  --blue-shadow:  rgba(143,179,201,0.35);
+  --rose:          #D6A0AE;  --rose-dim:   #F0D9DF;  --rose-shadow:  rgba(214,160,174,0.35);
+
+  --grad-glass: linear-gradient(135deg, rgba(169,150,204,0.16), rgba(231,174,132,0.12));
+
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-accent:  'Fraunces', serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --radius: 20px;
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; }
+button{ font-family:inherit; cursor:pointer; }
+::selection{ background:var(--lilac); color:#fff; }
+
+.wrap{ max-width:1240px; margin:0 auto; padding:0 32px; }
+
+.eyebrow{
+  font-family:var(--font-accent);
+  font-style:italic;
+  font-weight:400;
+  font-size:16px;
+  color:var(--lilac);
+  display:flex; align-items:center; gap:12px;
+  margin-bottom:18px;
+}
+.eyebrow::before{ content:''; width:26px; height:1px; background:var(--lilac); display:inline-block; }
+.eyebrow.c-peach{ color:var(--peach); } .eyebrow.c-peach::before{ background:var(--peach); }
+.eyebrow.c-sage{ color:var(--sage); } .eyebrow.c-sage::before{ background:var(--sage); }
+.eyebrow.c-blue{ color:var(--blue); } .eyebrow.c-blue::before{ background:var(--blue); }
+
+h1,h2,h3{ font-family:var(--font-display); font-weight:500; letter-spacing:-0.01em; line-height:1.1; color:var(--text); }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+}
+
+/* cursor glow */
+#cursor-glow{
+  position:fixed; top:0; left:0; width:440px; height:440px; border-radius:50%;
+  pointer-events:none;
+  background:radial-gradient(circle, rgba(169,150,204,0.14) 0%, rgba(169,150,204,0) 70%);
+  transform:translate(-50%,-50%); z-index:2;
+  transition:opacity .3s var(--ease); will-change:transform;
+}
+.scroll-progress{ position:fixed; top:0; left:0; z-index:150; width:100%; height:3px; background:linear-gradient(90deg,var(--lilac),var(--peach),var(--sage)); transform:scaleX(0); transform-origin:left; pointer-events:none; }
+@media (hover:none){ #cursor-glow{ display:none; } }
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding:22px 0;
+  transition:background .35s var(--ease), padding .35s var(--ease), border-color .35s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.navbar.scrolled{
+  background:rgba(251,246,239,0.78);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  padding:16px 0;
+  border-bottom:1px solid var(--line);
+}
+.navbar .wrap{ display:flex; align-items:center; justify-content:space-between; }
+.logo{ font-family:var(--font-display); font-size:19px; font-weight:500; display:flex; align-items:center; gap:10px; }
+.logo .sub{ font-family:var(--font-accent); font-style:italic; font-size:13px; color:var(--text-dim); }
+.navbar .logo{ font-size:30px; }
+.navbar .logo .sub{ font-size:17px; color:#b8c3d2; }
+.logo .dot{ width:8px; height:8px; border-radius:50%; background:var(--lilac); box-shadow:0 0 14px 3px var(--lilac-shadow); }
+.nav-links{ display:flex; align-items:center; gap:40px; }
+.nav-links a{ font-size:14.5px; color:var(--text-dim); position:relative; padding:4px 0; transition:color .25s; }
+.nav-links a:hover, .nav-links a:focus-visible{ color:var(--text); }
+.nav-links a::after{ content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--lilac); transition:width .3s var(--ease); }
+.nav-links a:hover::after{ width:100%; }
+.nav-cta{
+  font-family:var(--font-accent); font-style:italic; font-size:14.5px; color:#fff;
+  background:var(--lilac); padding:10px 22px; border-radius:100px;
+  transition:transform .3s var(--ease), background .3s;
+}
+.nav-cta:hover{ background:var(--peach); transform:translateY(-2px); }
+.nav-toggle{ display:none; flex-direction:column; gap:5px; background:none; border:none; padding:6px; }
+.nav-toggle span{ width:22px; height:2px; background:var(--text); transition:transform .3s, opacity .3s; }
+.nav-toggle.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2){ opacity:0; }
+.nav-toggle.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* ============================================================
+   HERO — Spline 3D parallax model
+   ============================================================ */
+.hero{ position:relative; min-height:100vh; display:flex; align-items:flex-end; overflow:hidden; padding-bottom:96px; }
+.spline-stage{ position:absolute; inset:0; width:100%; height:100%; z-index:0; background:var(--bg); }
+.spline-stage iframe{ width:100%; height:100%; border:0; display:block; }
+.spline-copy-mask{ position:absolute; z-index:1; top:21%; left:14%; width:min(51vw,820px); height:21%; border-radius:28px; background:rgba(251,246,239,.78); backdrop-filter:blur(18px) saturate(.72); -webkit-backdrop-filter:blur(18px) saturate(.72); box-shadow:inset 0 0 0 1px rgba(255,255,255,.48); pointer-events:none; }
+.hero::before{
+  content:'';
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(251,246,239,0.05) 0%, rgba(251,246,239,0.18) 38%, rgba(251,246,239,0.94) 100%),
+    linear-gradient(90deg, rgba(251,246,239,0.72) 0%, rgba(251,246,239,0) 55%);
+  z-index:1; pointer-events:none;
+}
+.hero-content{ position:relative; z-index:2; width:100%; }
+.hero-inner{ max-width:610px; padding:26px 28px 28px; border-radius:22px; background:rgba(251,246,239,.72); backdrop-filter:blur(14px) saturate(120%); -webkit-backdrop-filter:blur(14px) saturate(120%); box-shadow:0 22px 55px -38px rgba(51,41,31,.5); transition:transform .35s var(--ease), opacity .8s var(--ease); }
+ .hero-inner .eyebrow{ margin-bottom:12px; }.hero-inner h1{ margin-bottom:16px; }.hero-inner p{ margin-bottom:26px; }
+body:not(.is-ready) .hero-inner{ opacity:0; transform:translateY(28px); }
+.spline-stage{ transition:transform .7s var(--ease), filter .7s var(--ease); }
+body.is-ready .spline-stage{ filter:saturate(1.04) contrast(1.03); }
+.hero-inner{ max-width:660px; }
+.hero h1{ font-size:clamp(38px, 5.6vw, 68px); margin-bottom:22px; }
+.hero h1 .accent{ color:var(--lilac); font-style:italic; }
+.hero .eyebrow{ color:#000; font-size:18px; font-weight:500; }
+.hero .eyebrow::before{ background:#000; }
+.hero p{ font-size:18px; color:var(--text-dim); max-width:520px; margin-bottom:36px; }
+.hero-actions{ display:flex; gap:16px; flex-wrap:wrap; }
+.btn{
+  font-family:var(--font-accent); font-style:italic; font-size:15px;
+  padding:14px 28px; border-radius:100px; display:inline-flex; align-items:center; gap:10px;
+  transition:transform .3s var(--ease), background .3s, border-color .3s;
+}
+.btn-primary{ background:var(--lilac); color:#fff; border:1px solid var(--lilac); }
+.btn-primary:hover{ transform:translateY(-3px); background:#9683bd; }
+.btn-ghost{ border:1px solid var(--line); color:var(--text); background:rgba(255,255,255,0.5); }
+.btn-ghost:hover{ border-color:var(--lilac); transform:translateY(-3px); }
+
+.scroll-cue{
+  position:absolute; right:32px; bottom:40px; z-index:2;
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  font-family:var(--font-accent); font-style:italic; font-size:13px; color:var(--text-dim);
+  writing-mode:vertical-rl;
+}
+.scroll-cue .line{ width:1px; height:44px; background:linear-gradient(var(--text-dim), transparent); writing-mode:horizontal-tb; animation:scrollpulse 2.2s ease-in-out infinite; }
+@keyframes scrollpulse{ 0%,100%{ opacity:.25; } 50%{ opacity:1; } }
+@media (max-width:768px){ .scroll-cue{ display:none; } }
+@media (max-width:768px){ .spline-copy-mask{ top:16%; left:7%; width:86%; height:14%; border-radius:20px; }.hero-inner{ padding:22px; border-radius:18px; } }
+
+/* ============================================================
+   SHARED SCAFFOLDING
+   ============================================================ */
+section{ position:relative; padding:130px 0; }
+.section-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-bottom:56px; flex-wrap:wrap; }
+.section-head h2{ font-size:clamp(30px,4vw,44px); }
+.section-head p{ color:var(--text-dim); max-width:360px; font-size:15px; }
+.reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in{ opacity:1; transform:none; }
+
+/* ============================================================
+   EXPERIENCE TIMELINE
+   ============================================================ */
+.work{ background:var(--bg); scroll-margin-top:96px; }
+.timeline{
+  position:relative;
+  padding-left:36px;
+  border-left:1px solid var(--line);
+  margin-bottom:100px;
+}
+.timeline-item{ position:relative; padding-bottom:44px; }
+.timeline-item:last-child{ padding-bottom:0; }
+.timeline-item::before{
+  content:'';
+  position:absolute; left:-42px; top:6px;
+  width:11px; height:11px; border-radius:50%;
+  background:var(--dot, var(--lilac));
+  box-shadow:0 0 0 5px var(--bg), 0 0 0 6px var(--line);
+}
+.timeline-head{
+  display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;
+  margin-bottom:8px;
+}
+.timeline-head h3{ font-size:21px; }
+.timeline-head .dates{
+  font-family:var(--font-accent); font-style:italic; font-size:14px; color:var(--text-dim); white-space:nowrap;
+}
+.timeline-item .company{
+  font-family:var(--font-accent); font-style:italic; font-size:15px;
+  color:var(--dot, var(--lilac)); margin-bottom:10px; display:block;
+}
+.timeline-item p{ color:var(--text-dim); font-size:14.5px; max-width:640px; }
+
+/* ============================================================
+   ACHIEVEMENTS — brutalist 3D flip-cards. A deliberate contrast
+   note against the soft rest of the site (the checker pattern
+   nods to hazard/warning striping, fitting for a safety
+   scientist). Accent color rotates per card via --card-accent.
+   ============================================================ */
+.achv-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:32px; }
+.bento{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.bento .card{ position:relative; min-height:250px; padding:28px; overflow:hidden; border:1px solid var(--accent-dim,var(--line)); border-radius:var(--radius); background:var(--card-glow,linear-gradient(135deg,#fff,rgba(255,255,255,.5))); box-shadow:0 16px 36px -28px var(--accent-shadow,rgba(51,41,31,.4)); transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease); }
+.bento .card::before{ content:''; position:absolute; width:180px; height:180px; border-radius:50%; right:-70px; top:-70px; background:var(--accent-dim); opacity:.58; filter:blur(1px); transition:transform .45s var(--ease); }
+.bento .card:hover{ border-color:var(--accent); box-shadow:0 25px 45px -28px var(--accent-shadow); }
+.bento .card:hover::before{ transform:scale(1.35); }.bento .wide{ grid-column:span 2; }.card-tags{ position:relative; z-index:1; }.card-tags span{ display:inline-flex; padding:6px 10px; border-radius:100px; background:var(--accent-dim); color:var(--text); font:12px var(--font-accent); font-style:italic; }.card-body{ position:absolute; z-index:1; left:28px; right:28px; bottom:27px; }.card-body h3{ font-size:clamp(21px,2vw,27px); max-width:26ch; }.card-body p{ margin-top:10px; max-width:42ch; color:var(--text-dim); font-size:13.5px; line-height:1.55; }.card-arrow{ position:absolute; z-index:2; top:24px; right:24px; width:35px; height:35px; display:grid; place-items:center; border-radius:50%; border:1px solid var(--accent); color:var(--text); transition:transform .3s var(--ease); }.card:hover .card-arrow{ transform:rotate(45deg); }
+.a-parent{ perspective:1000px; }
+.a-card{
+  position:relative;
+  padding-top:50px;
+  border:3px solid #141414;
+  transform-style:preserve-3d;
+  background:
+    linear-gradient(135deg, #0000 18.75%, #f3f3f3 0 31.25%, #0000 0),
+    repeating-linear-gradient(45deg, #f3f3f3 -6.25% 6.25%, #141414 0 18.75%);
+  background-size:60px 60px;
+  background-position:0 0, 0 0;
+  background-color:#141414;
+  width:100%;
+  box-shadow:rgba(20,20,20,0.25) 0px 30px 30px -10px;
+  transition:all .5s var(--ease);
+}
+.a-card:hover{
+  background-position:-100px 100px, -100px 100px;
+  transform:rotate3d(0.5,1,0,20deg);
+}
+.a-content{
+  background:var(--card-accent, var(--lilac));
+  transition:all .5s ease-in-out;
+  padding:34px 22px 24px 22px;
+  min-height:190px;
+  transform-style:preserve-3d;
+}
+.a-content .a-tag{
+  display:inline-block;
+  font-family:var(--font-accent); font-style:italic;
+  color:#141414; font-size:12.5px;
+  transform:translate3d(0,0,20px);
+}
+.a-content .a-title{
+  display:block;
+  color:#141414; font-family:var(--font-display); font-weight:600;
+  font-size:21px; margin-top:8px;
+  transition:all .5s ease-in-out;
+  transform:translate3d(0,0,50px);
+}
+.a-content .a-body{
+  margin-top:10px; font-size:13px; color:#141414; opacity:.82;
+  transition:all .5s ease-in-out;
+  transform:translate3d(0,0,30px);
+}
+.a-date{
+  position:absolute; top:26px; right:26px; z-index:1;
+  height:56px; width:56px;
+  background:#141414; border:1px solid var(--card-accent, var(--lilac));
+  padding:8px;
+  transform:translate3d(0,0,80px);
+  box-shadow:rgba(20,20,20,0.3) 0px 17px 10px -10px;
+}
+.a-date span{ display:block; text-align:center; }
+.a-date .a-month{ color:var(--card-accent, var(--lilac)); font-size:8.5px; font-weight:700; letter-spacing:.05em; }
+.a-date .a-year{ font-size:16px; font-weight:900; color:var(--card-accent, var(--lilac)); }
+@media (max-width:640px){
+  .timeline{ padding-left:26px; }
+  .timeline-item::before{ left:-32px; }
+}
+@media (max-width:760px){ .bento{ grid-template-columns:1fr; }.bento .wide{ grid-column:auto; }.bento .card{ min-height:225px; } }
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about{ background:var(--surface-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.about-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:80px; align-items:start; }
+.about-portrait{
+  position:sticky; top:120px; border-radius:var(--radius); aspect-ratio:4/5;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(169,150,204,0.38), transparent 55%),
+    radial-gradient(circle at 80% 90%, rgba(143,179,201,0.30), transparent 50%),
+    var(--surface);
+  border:1px solid var(--line);
+  display:flex; flex-direction:column; justify-content:flex-end; gap:6px;
+  padding:26px; overflow:hidden;
+}
+.about-portrait img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 36%; transform:scale(1.045); filter:contrast(1.14) saturate(.88) brightness(.9); image-rendering:auto; }
+.about-portrait::before{ content:''; position:absolute; z-index:1; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.14),transparent 42%); pointer-events:none; }
+.about-portrait::after{ content:''; position:absolute; z-index:1; inset:0; background:linear-gradient(180deg,transparent 28%,rgba(18,22,19,.18) 54%,rgba(18,22,19,.9) 100%); }
+.portrait-copy{ position:relative; z-index:1; display:flex; flex-direction:column; gap:5px; }
+.about-portrait .location{ font-family:var(--font-accent); font-style:italic; font-size:14px; color:rgba(255,255,255,.82); }
+.about-portrait .label{ font-family:var(--font-accent); font-style:italic; font-size:14px; color:var(--text-dim); }
+.about-portrait .label.strong{ color:var(--text); font-style:normal; font-family:var(--font-display); font-size:20px; }
+.about-copy p{ font-size:16.5px; color:var(--text-dim); margin-bottom:22px; max-width:580px; }
+.about-copy strong{ color:var(--text); font-weight:600; }
+
+.stat-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin:44px 0; padding:28px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.stat h4{ font-family:var(--font-display); font-weight:500; font-size:32px; margin-bottom:6px; }
+.stat span{ font-family:var(--font-accent); font-style:italic; font-size:14px; color:var(--text-dim); }
+
+.tag-cloud{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:44px; }
+.tag-cloud span{
+  font-family:var(--font-accent); font-style:italic; font-size:13.5px;
+  padding:9px 16px; border:1px solid var(--line); border-radius:100px;
+  color:var(--text-dim); background:var(--surface); transition:border-color .25s, color .25s;
+}
+.tag-cloud span:hover{ border-color:var(--lilac); color:var(--text); }
+
+.edu-list{ display:flex; flex-direction:column; gap:18px; }
+.edu-item{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:18px; }
+.edu-item:last-child{ border-bottom:none; }
+.edu-item h4{ font-family:var(--font-display); font-size:17px; font-weight:500; margin-bottom:4px; }
+.edu-item p{ font-size:13.5px; color:var(--text-dim); margin:0; max-width:none; }
+.edu-item .dates{ font-family:var(--font-accent); font-style:italic; font-size:13.5px; color:var(--text-dim); white-space:nowrap; }
+
+@media (max-width:860px){
+  .about-grid{ grid-template-columns:1fr; }
+  .about-portrait{ position:relative; top:0; aspect-ratio:16/9; }
+  .stat-row{ grid-template-columns:1fr; gap:16px; }
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact{ background:var(--bg); }
+.contact-grid{ display:grid; grid-template-columns:minmax(0, 680px); gap:80px; }
+.contact-intro h2{ font-size:clamp(32px,4.6vw,50px); margin-bottom:22px; }
+.contact-intro p{ color:var(--text-dim); font-size:16px; max-width:420px; margin-bottom:36px; }
+.contact-email{
+  font-family:var(--font-display); font-style:italic; font-weight:500; font-size:clamp(20px,2.2vw,28px);
+  color:var(--lilac); display:inline-block; border-bottom:1px solid var(--lilac-dim); padding-bottom:6px; margin-bottom:28px;
+  transition:color .25s, border-color .25s;
+}
+.contact-email:hover{ color:var(--peach); border-color:var(--peach-dim); }
+.contact-meta{ display:flex; flex-direction:column; gap:10px; margin-bottom:36px; }
+.contact-meta div{ display:flex; align-items:center; gap:12px; font-size:14.5px; color:var(--text-dim); }
+.contact-meta .k{ font-family:var(--font-accent); font-style:italic; color:var(--text); width:78px; flex-shrink:0; }
+.social-row{ display:flex; gap:18px; }
+.social-row a{
+  height:44px; padding:0 20px; border:1px solid var(--line); border-radius:100px;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-accent); font-style:italic; font-size:14px;
+  transition:border-color .25s, transform .25s, color .25s; color:var(--text-dim);
+}
+.social-row a:hover{ border-color:var(--lilac); color:var(--lilac); transform:translateY(-3px); }
+
+@media (max-width:860px){ .contact-grid{ grid-template-columns:1fr; gap:48px; } }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{ border-top:1px solid var(--line); padding:56px 0 36px; background:var(--bg); }
+.footer-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:40px; margin-bottom:48px; }
+.footer-col h5{ font-family:var(--font-accent); font-style:italic; font-size:14px; color:var(--text-dim); margin-bottom:16px; }
+.footer-col ul{ display:flex; flex-direction:column; gap:10px; }
+.footer-col a{ font-size:14px; color:var(--text-dim); transition:color .2s; }
+.footer-col a:hover{ color:var(--text); }
+.footer-bottom{
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+  padding-top:28px; border-top:1px solid var(--line);
+  font-family:var(--font-accent); font-style:italic; font-size:13.5px; color:var(--text-dim);
+}
+.footer-bottom .back-top{ display:flex; align-items:center; gap:8px; transition:color .2s; }
+.footer-bottom .back-top:hover{ color:var(--lilac); }
+
+/* ============================================================
+   MOBILE NAV
+   ============================================================ */
+@media (max-width:860px){
+  .nav-links{
+    position:fixed; top:0; right:0; height:100vh; width:min(78vw,320px);
+    background:rgba(255,251,246,0.98); backdrop-filter:blur(20px);
+    flex-direction:column; justify-content:center; align-items:flex-start; padding:0 40px;
+    transform:translateX(100%); transition:transform .4s var(--ease);
+    border-left:1px solid var(--line); z-index:99;
+  }
+  .nav-links.open{ transform:translateX(0); }
+  .nav-links a{ font-size:20px; }
+  .nav-cta{ display:none; }
+  .nav-toggle{ display:flex; }
+}
+/* Dark neon interaction theme inspired by the reference portfolio. */
+:root{--bg:#07111e;--surface:#0c1727;--surface-2:#101e31;--line:rgba(129,183,216,.24);--text:#eff8ff;--text-dim:#a6b7c8;--lilac:#6c7bff;--lilac-dim:#1d2a55;--lilac-shadow:rgba(108,123,255,.38);--peach:#00e6a8;--peach-dim:#093a35;--peach-shadow:rgba(0,230,168,.35);--sage:#1fb9ff;--sage-dim:#0b2941;--blue:#23a4f5;--blue-dim:#112c46;--rose:#9c6cff;--rose-dim:#2a1c46}.navbar{background:rgba(7,17,30,.84);border-bottom:1px solid rgba(124,158,191,.15)}.navbar.scrolled{background:rgba(7,17,30,.92)}.logo .sub,.nav-links a{color:#b8c3d2}.nav-cta,.btn-primary{background:linear-gradient(110deg,#00dca5,#23a4f5 72%,#806cff);border-color:transparent;color:#04101c;box-shadow:0 0 26px rgba(0,220,165,.24)}.hero{min-height:760px;padding-bottom:0;background:radial-gradient(circle at 46% 50%,rgba(0,208,164,.15),transparent 34%),radial-gradient(circle at 88% 18%,rgba(108,123,255,.16),transparent 31%),#07111e;align-items:center}.hero::before{display:none}.spline-stage{inset:auto 7% 9% auto;width:min(43vw,550px);height:72%;border:2px solid rgba(0,230,168,.62);border-radius:24px;overflow:hidden;box-shadow:0 0 0 4px rgba(0,230,168,.08),0 0 44px rgba(0,198,163,.22)}.spline-stage iframe{width:170%;height:170%;margin:-27% 0 0 -31%}.spline-copy-mask{display:none}.hero-content{z-index:2}.hero-inner{max-width:620px;padding:0;background:transparent;box-shadow:none;backdrop-filter:none}.hero-inner .eyebrow{color:#b7c6d4;font-family:var(--font-body);font-size:14px;font-style:normal;letter-spacing:.02em}.hero-inner .eyebrow::before{background:#00e6a8}.availability{display:inline-flex!important;padding:9px 15px;border:1px solid rgba(0,230,168,.55);border-radius:100px;color:#00e6a8!important;font-size:12px!important;font-weight:600!important;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 0 24px rgba(0,230,168,.12)}.hero h1{font-family:var(--font-body);font-weight:700;letter-spacing:-.045em;font-size:clamp(42px,4.6vw,66px)}.hero h1 .accent{color:#00e6a8;font-style:normal}.hero-inner>p:not(.eyebrow):not(.availability){font-size:18px;line-height:1.7;color:#aebdca;max-width:570px}.btn-ghost{border-color:rgba(0,230,168,.55);background:transparent;color:#00e6a8}.btn-ghost:hover{background:rgba(0,230,168,.09);border-color:#00e6a8}.scroll-cue{color:#aebdca}.work,.contact,footer{background:#07111e}.about{background:#0b1829}.timeline{border-color:rgba(0,230,168,.32)}.timeline-item{transition:transform .3s var(--ease)}.timeline-item:hover{transform:translateX(9px)}.bento .card{background:linear-gradient(145deg,#0d1b2c,#0a1423);border-color:rgba(105,160,194,.3)}.bento .card::before{opacity:.22}.about-portrait{border-color:rgba(0,230,168,.4)}@media(max-width:860px){.hero{min-height:900px;align-items:flex-end;padding-bottom:60px}.spline-stage{top:100px;left:7%;right:auto;width:86%;height:39%;opacity:.72}.hero-content{padding-top:290px}.hero-inner{max-width:none}.navbar{background:rgba(7,17,30,.95)}}
+.profile-hero-card img{width:100%;height:100%;object-fit:cover;object-position:center 24%;filter:contrast(1.08) saturate(.92);transform:scale(1.02)}@media(max-width:860px){.profile-hero-card{opacity:1}}
+.dna-backdrop{position:absolute;z-index:0;left:38%;top:8%;width:340px;height:82%;opacity:.18;pointer-events:none;perspective:900px;overflow:hidden}.dna{position:relative;transform:rotate(16deg);transform-style:preserve-3d}.dna .link{display:block;position:relative;width:9em;height:.65em;margin:.62em auto;transform-style:preserve-3d;animation:dna-spin-y 15s infinite linear;animation-delay:calc(var(--n) * -.68s)}.dna .link::before,.dna .link::after{content:"";position:absolute;top:-.45em;width:1.55em;height:1.55em;border-radius:50%;animation:dna-spin-y 15s infinite linear reverse;animation-delay:inherit}.dna .link::before{left:-1.3em;background:radial-gradient(circle at 50% 25%,#fff,#00e6a8 38%,#07111e 88%);box-shadow:0 0 1em #00e6a8}.dna .link::after{right:-1.3em;background:radial-gradient(circle at 50% 25%,#fff,#6c7bff 38%,#07111e 88%);box-shadow:0 0 1em #6c7bff}.dna .link{background:linear-gradient(90deg,#00e6a8,#6c7bff);box-shadow:0 0 .7em rgba(255,255,255,.42)}.dna .link:nth-child(2n){--n:2}.dna .link:nth-child(3n){--n:3;background:linear-gradient(90deg,#23a4f5,#00e6a8)}.dna .link:nth-child(4n){--n:4;background:linear-gradient(90deg,#6c7bff,#23a4f5)}.profile-hero-card{z-index:1}@keyframes dna-spin-y{to{transform:rotateY(360deg)}}@media(max-width:860px){.dna-backdrop{left:48%;top:42%;height:45%;opacity:.1;transform:scale(.75)}}@media(prefers-reduced-motion:reduce){.dna .link,.dna .link::before,.dna .link::after{animation:none}}
+.cv-download{display:inline-flex;align-items:center;gap:10px;min-width:146px;padding:5px 14px 5px 5px;border:2px solid #6c7bff;border-radius:99px;color:#eff8ff;font-family:var(--font-body);font-size:13px;font-weight:700;letter-spacing:.01em;transition:transform .25s var(--ease),border-color .25s ease,box-shadow .25s ease}.cv-download:hover{color:#fff;border-color:#8c99ff;transform:translateY(-2px);box-shadow:0 0 25px rgba(108,123,255,.38)}.cv-download__circle{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#6c7bff,#23a4f5);color:#fff;transition:transform .3s var(--ease)}.cv-download:hover .cv-download__circle{transform:translateY(2px)}.cv-download svg{width:21px;height:21px}@media(max-width:860px){.cv-download{min-width:140px}}
+.credential-logos{display:flex;align-items:center;gap:9px;margin:16px 0 2px}.credential-logo{display:flex;align-items:center;justify-content:center;min-height:42px;padding:6px 9px;border:1px solid rgba(136,189,219,.24);border-radius:9px;background:rgba(255,255,255,.96);overflow:hidden}.credential-logo img{display:block;max-width:100%;height:30px;object-fit:contain}.credential-logo.abt{width:148px;background:#173c6b;padding:0}.credential-logo.abt img{width:100%;height:42px;object-fit:cover}.credential-logo.eurotox{width:106px}.credential-logo.eurotox img{height:20px;width:112px;max-width:none;object-position:left}.credential-logo.bts{width:118px}.credential-logo.bts img{height:30px;width:112px;max-width:none}.credential-link{display:inline-flex;margin-top:9px;color:#00e6a8;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.credential-link:hover{color:#eff8ff}@media(max-width:520px){.credential-logos{gap:7px}.credential-logo.abt{width:132px}.credential-logo.eurotox{width:88px}.credential-logo.bts{width:100px}.credential-logo.eurotox img{height:17px}.credential-logo.bts img{height:26px}}
+.device-showcase{margin:6px 0 100px;padding:34px 0 28px;border-top:1px solid rgba(129,183,216,.22);border-bottom:1px solid rgba(129,183,216,.22);overflow:hidden;scroll-margin-top:110px}.device-showcase+.device-showcase{margin-top:-58px}.device-showcase__head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:26px}.device-showcase__head h3{font-family:var(--font-display);font-size:clamp(25px,3vw,34px);font-weight:500;color:var(--text)}.device-showcase__head p{max-width:430px;color:var(--text-dim);font-size:14px;line-height:1.65}.device-marquee{position:relative;margin-inline:-12px;padding:0 12px;overflow:hidden}.device-track{display:flex;gap:22px;width:max-content;padding:0 22px;animation:device-scroll 38s linear infinite}.device-showcase.medtronic .device-track{animation-duration:34s}.device-showcase.zimmer .device-track{animation-duration:26s}.device-showcase.baxter .device-track{animation-duration:30s}.device-marquee:hover .device-track{animation-play-state:paused}.device-card{flex:0 0 clamp(238px,23vw,300px);height:318px;border:1px solid rgba(105,160,194,.32);border-radius:18px;background:linear-gradient(145deg,#0d1b2c,#0a1423);box-shadow:0 20px 38px -32px rgba(0,230,168,.38);overflow:hidden}.device-showcase.medtronic .device-card{box-shadow:0 20px 38px -32px rgba(35,164,245,.42)}.device-showcase.zimmer .device-card{box-shadow:0 20px 38px -32px rgba(156,108,255,.42)}.device-showcase.baxter .device-card{box-shadow:0 20px 38px -32px rgba(231,174,132,.42)}.device-card__image{height:218px;padding:18px;background:#f7f9fa;display:flex;align-items:center;justify-content:center}.device-card__image img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center}.device-card__meta{height:100px;padding:16px 18px 18px;background:linear-gradient(145deg,#0d1b2c,#0a1423)}.device-card__meta span{display:block;margin-bottom:6px;color:#00e6a8;font-size:10.5px;font-weight:700;letter-spacing:.06em;line-height:1.35;text-transform:uppercase}.device-showcase.medtronic .device-card__meta span{color:#23a4f5}.device-showcase.zimmer .device-card__meta span{color:#9c6cff}.device-showcase.baxter .device-card__meta span{color:#e7ae84}.device-card__meta strong{display:block;font-family:var(--font-display);font-size:clamp(18px,1.6vw,21px);font-weight:500;line-height:1.15;color:var(--text)}.hero-inner{max-width:720px}.hero h1{font-size:clamp(38px,4.2vw,62px)}.hero-domains{margin:0 0 16px!important;color:#00e6a8!important;font-size:13px!important;font-weight:700!important;letter-spacing:.08em;text-transform:uppercase;max-width:720px!important;line-height:1.6!important}@keyframes device-scroll{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 11px))}}@media(max-width:760px){.device-showcase{margin-bottom:74px;padding-bottom:24px}.device-showcase+.device-showcase{margin-top:-40px}.device-showcase__head{display:block}.device-showcase__head p{margin-top:12px}.device-marquee{margin-inline:-4px;padding:0 4px}.device-track{gap:16px;padding:0 14px;animation-duration:32s}.device-card{flex-basis:238px;height:282px}.device-card__image{height:186px;padding:14px}.device-card__meta{height:96px}.device-card__meta strong{font-size:18px}.hero-domains{font-size:11px!important;letter-spacing:.05em}}@media(prefers-reduced-motion:reduce){.device-track{animation:none;overflow-x:auto}}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" aria-hidden="true"></div>
+<div id="cursor-glow" aria-hidden="true"></div>
+
+<!-- ============================================================ NAVBAR ============================================================ -->
+<header class="navbar" id="navbar">
+  <div class="wrap">
+    <a href="#top" class="logo"><span class="dot"></span>Vasudev Seeram <span class="sub">PhD, DABT, ERT</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#work">Experience</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Get in touch ↗</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================================================ HERO ============================================================ -->
+<section class="hero" id="top">
+  <div class="dna-backdrop" aria-hidden="true"><div class="dna">
+    <i class="link"></i><i class="link"></i><i class="link"></i><i class="link"></i><i class="link"></i><i class="link"></i>
+    <i class="link"></i><i class="link"></i><i class="link"></i><i class="link"></i><i class="link"></i><i class="link"></i>
+    <i class="link"></i><i class="link"></i><i class="link"></i><i class="link"></i><i class="link"></i><i class="link"></i>
+  </div></div>
+  <div class="spline-stage profile-hero-card">
+    <img src="profile-picture.png" alt="Vasudev Seeram" />
+  </div>
+  <div class="spline-copy-mask" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <div class="wrap">
+      <div class="hero-inner">
+        <p class="availability">Available for opportunities</p>
+        <p class="eyebrow">Vasudev Seeram · PhD, DABT, ERT</p>
+        <h1>Biological Safety,<br /><span class="accent">Toxicology &amp; AI Innovation</span></h1>
+        <p class="hero-domains">MedTech | Biopharma | Regulatory Science | Preclinical Safety</p>
+        <p>DABT-certified toxicologist and biotechnology PhD with 17+ years leading biological safety, toxicological risk assessment, chemical characterization, and global regulatory support for Class I-III medical devices.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">✉ Get in touch</a>
+          <a href="#work" class="btn btn-ghost">↓ View experience</a>
+          <a class="cv-download" href="Vasudev_Seeram_Resume.pdf" download="Vasudev_Seeram_Resume.pdf" aria-label="Download Vasudev Seeram Resume">
+            <span class="cv-download__circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" /></svg></span>
+            <span>Download Resume</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+</section>
+
+<!-- ============================================================ EXPERIENCE + ACHIEVEMENTS ============================================================ -->
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">Career Timeline</p>
+        <h2>Seventeen years in toxicology &amp; biological safety.</h2>
+      </div>
+      <p>From GLP study direction to portfolio-level biological safety strategy, budget planning, and global submission support.</p>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="timeline-item" style="--dot:var(--lilac);">
+        <div class="timeline-head"><h3>Biological Safety Engineer &amp; Senior Toxicologist</h3><span class="dates">Sep 2024 – Present</span></div>
+        <span class="company">Philips · Pune, India</span>
+        <p>Leads biological safety and preclinical strategy for Class I-III respiratory devices, owns annual study budget planning, manages direct-report performance goals, qualifies CRO/GLP partners, and authors BERs and TRAs for US, EU, and global submissions.</p>
+      </div>
+      <div class="timeline-item" style="--dot:var(--peach);">
+        <div class="timeline-head"><h3>Senior Toxicologist</h3><span class="dates">Oct 2021 – Aug 2024</span></div>
+        <span class="company">Medtronic · Hyderabad, India</span>
+        <p>Led biological safety evaluations for Class II-III cardiovascular, neuromodulation, surgical, diabetes, minimally invasive, and respiratory portfolios; prepared 30+ BERs and 25+ TRAs while mentoring junior scientists.</p>
+      </div>
+      <div class="timeline-item" style="--dot:var(--sage);">
+        <div class="timeline-head"><h3>Specialist in Biocompatibility &amp; Toxicology</h3><span class="dates">Dec 2020 – Oct 2021</span></div>
+        <span class="company">Tata Elxsi · Hyderabad, India</span>
+        <p>Delivered ISO 10993 and ISO 14971 consulting for Class II-III devices, authored 40+ BERs and 10+ TRAs, performed endpoint gap assessments, and mentored 12 junior scientists.</p>
+      </div>
+      <div class="timeline-item" style="--dot:var(--blue);">
+        <div class="timeline-head"><h3>Senior Research Associate</h3><span class="dates">Sep 2018 – Dec 2020</span></div>
+        <span class="company">Syngene International · Bangalore, India</span>
+        <p>Designed and interpreted GLP-compliant non-clinical toxicology studies, served as Study Director for repeat-dose programs, and supported Baxter programs with 5+ BERs and 12+ TRAs.</p>
+      </div>
+      <div class="timeline-item" style="--dot:var(--rose);">
+        <div class="timeline-head"><h3>Research Officer</h3><span class="dates">Jan 2015 – Aug 2018</span></div>
+        <span class="company">Glenmark Pharmaceuticals · Mumbai, India</span>
+        <p>Conducted non-clinical toxicology studies for pharmaceutical development, coordinated outsourced GLP studies, designed impurity-qualification studies, and calculated 100+ PDE and 25+ OEL values.</p>
+      </div>
+      <div class="timeline-item" style="--dot:var(--lilac);">
+        <div class="timeline-head"><h3>Scientist</h3><span class="dates">Jan 2013 – Jan 2015</span></div>
+        <span class="company">Bioneeds India Pvt. Ltd. · Bangalore, India</span>
+        <p>Served as Study Director for GLP toxicology and ISO 10993 biocompatibility studies, designing 300+ biocompatibility studies, 12+ implantation studies, and 10+ repeat-dose studies.</p>
+      </div>
+      <div class="timeline-item" style="--dot:var(--peach);">
+        <div class="timeline-head"><h3>Research Officer</h3><span class="dates">Feb 2011 – Dec 2012</span></div>
+        <span class="company">Vimta Labs Limited · Hyderabad, India</span>
+        <p>Performed regulatory toxicology studies under GLP, including acute and repeated-dose toxicity, and pharmacokinetic and tissue implantation studies.</p>
+      </div>
+      <div class="timeline-item" style="--dot:var(--sage);">
+        <div class="timeline-head"><h3>Research Officer</h3><span class="dates">Sep 2009 – Jan 2011</span></div>
+        <span class="company">Vivobiotech Limited · Hyderabad, India</span>
+        <p>Conducted laboratory-based toxicology studies supporting pharmaceutical and device development; maintained GLP-compliant documentation.</p>
+      </div>
+    </div>
+
+    <div class="device-showcase reveal" aria-label="Respiratory device portfolios supported for biocompatibility testing">
+      <div class="device-showcase__head">
+        <div>
+          <p class="eyebrow c-blue">Philips Portfolio</p>
+          <h3>Respiratory portfolios supported for biocompatibility testing.</h3>
+        </div>
+        <p>Representative Philips respiratory devices where biological safety, material change impact, and biocompatibility evidence strategies were supported.</p>
+      </div>
+      <div class="device-marquee">
+        <div class="device-track">
+          <article class="device-card">
+            <div class="device-card__image"><img src="philips-device-bipap.png" alt="BiPAP device" /></div>
+            <div class="device-card__meta"><span>Biocompatibility Testing</span><strong>BiPAP</strong></div>
+          </article>
+          <article class="device-card">
+            <div class="device-card__image"><img src="philips-device-cpap.png" alt="CPAP device" /></div>
+            <div class="device-card__meta"><span>Biocompatibility Testing</span><strong>CPAP</strong></div>
+          </article>
+          <article class="device-card">
+            <div class="device-card__image"><img src="philips-device-trilogy.png" alt="Trilogy ventilator" /></div>
+            <div class="device-card__meta"><span>Biocompatibility Testing</span><strong>Trilogy</strong></div>
+          </article>
+          <article class="device-card">
+            <div class="device-card__image"><img src="philips-device-optichamber.png" alt="OptiChamber device" /></div>
+            <div class="device-card__meta"><span>Biocompatibility Testing</span><strong>OptiChamber</strong></div>
+          </article>
+          <article class="device-card">
+            <div class="device-card__image"><img src="philips-device-oxygen-concentrator.png" alt="Oxygen concentrator" /></div>
+            <div class="device-card__meta"><span>Biocompatibility Testing</span><strong>Oxygen Concentrator</strong></div>
+          </article>
+          <article class="device-card" aria-hidden="true">
+            <div class="device-card__image"><img src="philips-device-bipap.png" alt="" /></div>
+            <div class="device-card__meta"><span>Biocompatibility Testing</span><strong>BiPAP</strong></div>
+          </article>
+          <article class="device-card" aria-hidden="true">
+            <div class="device-card__image"><img src="philips-device-cpap.png" alt="" /></div>
+            <div class="device-card__meta"><span>Biocompatibility Testing</span><strong>CPAP</strong></div>
+          </article>
+          <article class="device-card" aria-hidden="true">
+            <div class="device-card__image"><img src="philips-device-trilogy.png" alt="" /></div>
+            <div class="device-card__meta"><span>Biocompatibility Testing</span><strong>Trilogy</strong></div>
+          </article>
+          <article class="device-card" aria-hidden="true">
+            <div class="device-card__image"><img src="philips-device-optichamber.png" alt="" /></div>
+            <div class="device-card__meta"><span>Biocompatibility Testing</span><strong>OptiChamber</strong></div>
+          </article>
+          <article class="device-card" aria-hidden="true">
+            <div class="device-card__image"><img src="philips-device-oxygen-concentrator.png" alt="" /></div>
+            <div class="device-card__meta"><span>Biocompatibility Testing</span><strong>Oxygen Concentrator</strong></div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="device-showcase medtronic reveal" aria-label="Medtronic device portfolios supported for biocompatibility testing">
+      <div class="device-showcase__head">
+        <div>
+          <p class="eyebrow c-blue">Medtronic Portfolios</p>
+          <h3>Cardiovascular, neuromodulation, and minimally invasive portfolios.</h3>
+        </div>
+        <p>Representative Medtronic device families supported through biological safety evaluation, biocompatibility strategy, and toxicological risk assessment.</p>
+      </div>
+      <div class="device-marquee">
+        <div class="device-track">
+          <article class="device-card">
+            <div class="device-card__image"><img src="medtronic-device-micra.png" alt="Micra cardiovascular device" /></div>
+            <div class="device-card__meta"><span>Cardiovascular</span><strong>Micra</strong></div>
+          </article>
+          <article class="device-card">
+            <div class="device-card__image"><img src="medtronic-device-evolutfx.png" alt="Evolut FX stent" /></div>
+            <div class="device-card__meta"><span>Cardiovascular</span><strong>EvolutFX Stents</strong></div>
+          </article>
+          <article class="device-card">
+            <div class="device-card__image"><img src="medtronic-device-synchromed-ii.png" alt="SynchroMed II neuromodulation pump" /></div>
+            <div class="device-card__meta"><span>Neuromodulation</span><strong>SynchroMed II</strong></div>
+          </article>
+          <article class="device-card">
+            <div class="device-card__image"><img src="medtronic-device-versaone.png" alt="VersaOne minimally invasive surgical device" /></div>
+            <div class="device-card__meta"><span>Surgical - Minimally Invasive</span><strong>VersaOne</strong></div>
+          </article>
+          <article class="device-card" aria-hidden="true">
+            <div class="device-card__image"><img src="medtronic-device-micra.png" alt="" /></div>
+            <div class="device-card__meta"><span>Cardiovascular</span><strong>Micra</strong></div>
+          </article>
+          <article class="device-card" aria-hidden="true">
+            <div class="device-card__image"><img src="medtronic-device-evolutfx.png" alt="" /></div>
+            <div class="device-card__meta"><span>Cardiovascular</span><strong>EvolutFX Stents</strong></div>
+          </article>
+          <article class="device-card" aria-hidden="true">
+            <div class="device-card__image"><img src="medtronic-device-synchromed-ii.png" alt="" /></div>
+            <div class="device-card__meta"><span>Neuromodulation</span><strong>SynchroMed II</strong></div>
+          </article>
+          <article class="device-card" aria-hidden="true">
+            <div class="device-card__image"><img src="medtronic-device-versaone.png" alt="" /></div>
+            <div class="device-card__meta"><span>Surgical - Minimally Invasive</span><strong>VersaOne</strong></div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="device-showcase zimmer reveal" aria-label="Zimmer Persona device portfolio supported for biocompatibility testing">
+      <div class="device-showcase__head">
+        <div>
+          <p class="eyebrow c-blue">Zimmer Portfolio</p>
+          <h3>Persona knee portfolio supported through biological safety consulting.</h3>
+        </div>
+        <p>Representative Zimmer Persona knee prosthetic portfolio supported through ISO 10993 endpoint gap assessment and biocompatibility strategy.</p>
+      </div>
+      <div class="device-marquee">
+        <div class="device-track">
+          <article class="device-card">
+            <div class="device-card__image"><img src="zimmer-device-persona-knee.png" alt="Zimmer Persona knee system" /></div>
+            <div class="device-card__meta"><span>Orthopedic Implant</span><strong>Persona Knee</strong></div>
+          </article>
+          <article class="device-card">
+            <div class="device-card__image"><img src="zimmer-device-persona-implant.png" alt="Persona knee implant component" /></div>
+            <div class="device-card__meta"><span>Orthopedic Implant</span><strong>Persona Implant</strong></div>
+          </article>
+          <article class="device-card">
+            <div class="device-card__image"><img src="zimmer-device-persona-knee.png" alt="Zimmer Persona knee system" /></div>
+            <div class="device-card__meta"><span>Orthopedic Implant</span><strong>Persona Knee</strong></div>
+          </article>
+          <article class="device-card">
+            <div class="device-card__image"><img src="zimmer-device-persona-implant.png" alt="Persona knee implant component" /></div>
+            <div class="device-card__meta"><span>Orthopedic Implant</span><strong>Persona Implant</strong></div>
+          </article>
+          <article class="device-card" aria-hidden="true">
+            <div class="device-card__image"><img src="zimmer-device-persona-knee.png" alt="" /></div>
+            <div class="device-card__meta"><span>Orthopedic Implant</span><strong>Persona Knee</strong></div>
+          </article>
+          <article class="device-card" aria-hidden="true">
+            <div class="device-card__image"><img src="zimmer-device-persona-implant.png" alt="" /></div>
+            <div class="device-card__meta"><span>Orthopedic Implant</span><strong>Persona Implant</strong></div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="device-showcase baxter reveal" aria-label="Baxter healthcare portfolios supported for biological safety work">
+      <div class="device-showcase__head">
+        <div>
+          <p class="eyebrow c-blue">Baxter Portfolios</p>
+          <h3>Dialysis, surgical care, and nutritional care portfolios.</h3>
+        </div>
+        <p>Representative Baxter therapies and products supported through non-clinical toxicology, biological evaluation, and toxicological risk assessment work.</p>
+      </div>
+      <div class="device-marquee">
+        <div class="device-track">
+          <article class="device-card">
+            <div class="device-card__image"><img src="baxter-device-theranova.png" alt="Theranova dialysis therapy" /></div>
+            <div class="device-card__meta"><span>Dialysis Therapy</span><strong>Theranova</strong></div>
+          </article>
+          <article class="device-card">
+            <div class="device-card__image"><img src="baxter-device-floseal.png" alt="Floseal hemostatic matrix" /></div>
+            <div class="device-card__meta"><span>Surgical Care</span><strong>Floseal Hemostatic Matrix</strong></div>
+          </article>
+          <article class="device-card">
+            <div class="device-card__image"><img src="baxter-device-oliclinomel.png" alt="Oliclinomel parenteral nutrition formulation" /></div>
+            <div class="device-card__meta"><span>Nutritional Care</span><strong>OLICLINOMEL</strong></div>
+          </article>
+          <article class="device-card">
+            <div class="device-card__image"><img src="baxter-device-theranova.png" alt="Theranova dialysis therapy" /></div>
+            <div class="device-card__meta"><span>Dialysis Therapy</span><strong>Theranova</strong></div>
+          </article>
+          <article class="device-card" aria-hidden="true">
+            <div class="device-card__image"><img src="baxter-device-floseal.png" alt="" /></div>
+            <div class="device-card__meta"><span>Surgical Care</span><strong>Floseal Hemostatic Matrix</strong></div>
+          </article>
+          <article class="device-card" aria-hidden="true">
+            <div class="device-card__image"><img src="baxter-device-oliclinomel.png" alt="" /></div>
+            <div class="device-card__meta"><span>Nutritional Care</span><strong>OLICLINOMEL</strong></div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow c-peach">Achievements &amp; Credentials</p>
+        <h2>Certifications, regulatory output, and recognition.</h2>
+      </div>
+      <p>Board certification, professional credentials, regulatory outputs, and outcomes that reduced cost and risk for the teams involved.</p>
+    </div>
+
+    <div class="bento">
+      <article class="card wide reveal" style="--accent:var(--lilac); --accent-dim:var(--lilac-dim); --accent-shadow:var(--lilac-shadow); --card-glow:linear-gradient(135deg, rgba(169,150,204,0.22), rgba(169,150,204,0.06));">
+        <div class="card-arrow">↗</div>
+        <div class="card-tags"><span>Achievement</span></div>
+        <div class="card-body">
+          <h3>Optimized biocompatibility strategy</h3>
+          <p>Redesigned risk-based biocompatibility approaches across device programs, reducing repeat testing by 20% without compromising regulatory rigor.</p>
+        </div>
+      </article>
+
+      <article class="card reveal" style="--accent:var(--peach); --accent-dim:var(--peach-dim); --accent-shadow:var(--peach-shadow); --card-glow:linear-gradient(135deg, rgba(231,174,132,0.24), rgba(231,174,132,0.06));">
+        <div class="card-arrow">↗</div>
+        <div class="card-tags"><span>Certification</span></div>
+        <div class="card-body">
+          <h3>DABT</h3>
+          <div class="credential-logos" aria-label="American Board of Toxicology">
+            <span class="credential-logo abt"><img src="abt-logo.png" alt="American Board of Toxicology" /></span>
+          </div>
+          <p>Diplomate of the American Board of Toxicology. Certified 2019, valid through Dec 2029.</p>
+          <a class="credential-link" href="https://app.badgecert.com/public/badges/virgmmtz" target="_blank" rel="noopener">Verify DABT credential ↗</a>
+        </div>
+      </article>
+
+      <article class="card reveal" style="--accent:var(--sage); --accent-dim:var(--sage-dim); --accent-shadow:var(--sage-shadow); --card-glow:linear-gradient(135deg, rgba(147,172,150,0.24), rgba(147,172,150,0.06));">
+        <div class="card-arrow">↗</div>
+        <div class="card-tags"><span>Certification</span></div>
+        <div class="card-body">
+          <h3>ERT</h3>
+          <div class="credential-logos" aria-label="European toxicology professional organisations">
+            <span class="credential-logo eurotox"><img src="eurotox-logo.png" alt="Eurotox" /></span>
+            <span class="credential-logo bts"><img src="bts-logo.png" alt="British Toxicology Society" /></span>
+          </div>
+          <p>European Registered Toxicologist, UK-ERT, awarded July 2026.</p>
+        </div>
+      </article>
+
+      <article class="card reveal" style="--accent:var(--blue); --accent-dim:var(--blue-dim); --accent-shadow:var(--blue-shadow); --card-glow:linear-gradient(135deg, rgba(143,179,201,0.24), rgba(143,179,201,0.06));">
+        <div class="card-arrow">↗</div>
+        <div class="card-tags"><span>Regulatory Output</span></div>
+        <div class="card-body">
+          <h3>100+ BERs and 60+ TRAs</h3>
+          <p>Authored and reviewed biological evaluation and toxicological risk assessment packages supporting US, EU, and global regulatory submissions.</p>
+        </div>
+      </article>
+
+      <article class="card reveal" style="--accent:var(--rose); --accent-dim:var(--rose-dim); --accent-shadow:var(--rose-shadow); --card-glow:linear-gradient(135deg, rgba(214,160,174,0.24), rgba(214,160,174,0.06));">
+        <div class="card-arrow">↗</div>
+        <div class="card-tags"><span>Credential</span></div>
+        <div class="card-body">
+          <h3>PMP, RAC member, SOT member</h3>
+          <p>Project Management Professional, Regulatory Affairs Certification member, and Society of Toxicology full member credentials added in 2026.</p>
+        </div>
+      </article>
+
+      <article class="card reveal" style="--accent:var(--lilac); --accent-dim:var(--lilac-dim); --accent-shadow:var(--lilac-shadow); --card-glow:linear-gradient(135deg, rgba(169,150,204,0.2), rgba(143,179,201,0.1));">
+        <div class="card-tags"><span>Recognition</span></div>
+        <div class="card-body">
+          <h3>Best performance, joint USFDA &amp; NGCMA audit</h3>
+          <p>Recognized for live in-vivo phase demonstration; audit completed without major findings.</p>
+        </div>
+        <div class="card-arrow" style="position:relative; top:auto; right:auto;">↗</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ ABOUT ============================================================ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-portrait reveal">
+        <img src="profile-picture.png" alt="Vasudev Seeram" />
+        <div class="portrait-copy">
+          <span class="label strong" style="color:#fff;">Vasudev Seeram</span>
+          <span class="location">Based in Pune, India</span>
+          <span class="label" style="color:rgba(255,255,255,.82);">Open to consulting, advisory &amp; full-time opportunities</span>
+        </div>
+      </div>
+
+      <div class="about-copy">
+        <p class="eyebrow c-sage">About</p>
+        <h2 class="reveal" style="margin-bottom:28px;">Turning complex toxicology into clear regulatory decisions.</h2>
+        <p class="reveal"><strong>I'm Vasudev</strong>, a DABT-certified toxicologist and biotechnology PhD with 17+ years spanning medical devices, biocompatibility, non-clinical toxicology, and regulatory science. I lead biological safety and preclinical strategy for Class I-III devices, including respiratory, implantable, and cardiovascular portfolios.</p>
+        <p class="reveal">My work applies ISO 10993, ISO 10993-18, ISO 14971, ISO 18562, FDA guidance, EU MDR, 21 CFR Part 58, and OECD GLP across chemical characterization, extractables/leachables, TRA, CRO qualification, ASL onboarding, budget planning, and cross-functional governance.</p>
+
+        <div class="stat-row reveal">
+          <div class="stat"><h4 style="color:var(--lilac);">17+</h4><span>Years in toxicology</span></div>
+          <div class="stat"><h4 style="color:var(--peach);">DABT · ERT</h4><span>Board certifications</span></div>
+          <div class="stat"><h4 style="color:var(--sage);">100+</h4><span>BERs authored/reviewed</span></div>
+        </div>
+
+        <p class="eyebrow c-blue" style="margin-bottom:14px;">Core Competencies</p>
+        <div class="tag-cloud reveal">
+          <span>Preclinical Strategy</span><span>Biocompatibility Evaluation</span><span>ISO 10993</span>
+          <span>ISO 10993-18</span><span>ISO 14971</span><span>ISO 18562</span>
+          <span>EU MDR</span><span>FDA Guidance</span><span>Toxicological Risk Assessment</span>
+          <span>Extractables &amp; Leachables</span><span>Chemical Characterization</span><span>CRO Qualification</span>
+          <span>GLP Study Oversight</span><span>Budget Planning</span><span>People Leadership</span>
+          <span>Power BI</span><span>SQL</span><span>Python</span>
+        </div>
+
+        <p class="eyebrow" style="margin-bottom:14px;">Education</p>
+        <div class="edu-list reveal">
+          <div class="edu-item">
+            <div><h4>PhD in Biotechnology</h4><p>SR University, Alwar, India</p></div>
+            <span class="dates">2018 – 2025</span>
+          </div>
+          <div class="edu-item">
+            <div><h4>MSc in Biotechnology</h4><p>Periyar University, Salem, India</p></div>
+            <span class="dates">2006 – 2008</span>
+          </div>
+          <div class="edu-item">
+            <div><h4>BSc in Biotechnology</h4><p>Acharya Nagarjuna University, Tenali, India</p></div>
+            <span class="dates">2003 – 2006</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CONTACT ============================================================ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-intro reveal">
+        <p class="eyebrow c-peach">Get in touch</p>
+        <h2>Let's talk biological safety.</h2>
+        <p>Open to consulting engagements, advisory work, and full-time opportunities in toxicology, biocompatibility, and regulatory science.</p>
+        <a href="mailto:seerum.vasu@gmail.com" class="contact-email">seerum.vasu@gmail.com</a>
+        <div class="contact-meta">
+          <div><span class="k">Phone</span> +91-9920060527</div>
+          <div><span class="k">Location</span> Pune, India</div>
+        </div>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/vasudev-s-0407265b" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/seerumvasu-sketch" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER ============================================================ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-col" style="max-width:300px;">
+        <a href="#top" class="logo" style="margin-bottom:14px; display:flex;"><span class="dot"></span>Vasudev Seeram</a>
+        <p style="font-size:13px; color:var(--text-dim);">DABT-certified toxicologist specializing in biological safety, TRA, chemical characterization, and regulatory science for Class I-III medical devices.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Site</h5>
+        <ul>
+          <li><a href="#work">Experience</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Credentials</h5>
+        <ul>
+          <li><span style="font-size:14px; color:var(--text-dim);">DABT, since 2019</span></li>
+          <li><span style="font-size:14px; color:var(--text-dim);">ERT (UK-ERT), 2026</span></li>
+          <li><span style="font-size:14px; color:var(--text-dim);">PMP, 2026</span></li>
+          <li><span style="font-size:14px; color:var(--text-dim);">RAC member, SOT full member</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:seerum.vasu@gmail.com">seerum.vasu@gmail.com</a></li>
+          <li><span style="color:var(--text-dim); font-size:14px;">+91-9920060527</span></li>
+          <li><span style="color:var(--text-dim); font-size:14px;">Pune, India</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Vasudev Seeram, PhD, DABT, ERT. All rights reserved.</span>
+      <a href="#top" class="back-top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const navbar = document.getElementById('navbar');
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  document.querySelector('.scroll-progress').style.transform = `scaleX(${maxScroll ? window.scrollY / maxScroll : 0})`;
+}, { passive: true });
+
+window.addEventListener('load', () => document.body.classList.add('is-ready'), { once: true });
+
+navToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  navToggle.classList.toggle('open', isOpen);
+  navToggle.setAttribute('aria-expanded', isOpen);
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+const glow = document.getElementById('cursor-glow');
+window.addEventListener('mousemove', (e) => {
+  glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%,-50%)`;
+}, { passive: true });
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealEls = document.querySelectorAll('.reveal');
+
+if (prefersReducedMotion) {
+  revealEls.forEach(el => el.classList.add('in'));
+} else {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const siblings = [...entry.target.parentElement.querySelectorAll('.reveal')];
+        entry.target.style.transitionDelay = `${Math.min(Math.max(siblings.indexOf(entry.target), 0) * 70, 280)}ms`;
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(el => io.observe(el));
+}
+
+if (!prefersReducedMotion && window.matchMedia('(hover:hover)').matches) {
+  const heroInner = document.querySelector('.hero-inner');
+  document.querySelector('.hero').addEventListener('pointermove', (event) => {
+    const x = (event.clientX / window.innerWidth - .5) * 10;
+    const y = (event.clientY / window.innerHeight - .5) * 7;
+    heroInner.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+  });
+  document.querySelector('.hero').addEventListener('pointerleave', () => {
+    heroInner.style.transform = '';
+  });
+}
+
+if (!prefersReducedMotion && window.matchMedia('(hover:hover)').matches) {
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateY(0) rotateX(0) translateY(0)';
+    });
+  });
+}
+
+</script>
+
+</body>
+</html>
